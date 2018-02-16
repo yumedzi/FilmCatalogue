@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import './App.css';
 
+const splitWithNewLines = str => str.split('\n').map((item, key) => <span key={key}>{item}<br/></span>);
+
 class App extends Component {
   constructor(props) {
     super(props);
@@ -24,7 +26,7 @@ class App extends Component {
       <div>
         <div>
           <div><strong>Name: </strong><span>{this.state.name}</span></div>
-          <div><strong>Description: </strong><span>{this.state.description}</span></div>
+          <div><strong>Description: </strong><p>{splitWithNewLines(this.state.description)}</p></div>
           <div><strong>Rating: </strong><span>{this.state.rating}</span></div>
         </div>
         <p>Edit Form:</p>
