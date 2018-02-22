@@ -1,6 +1,7 @@
 import React from 'react'
 import {Panel, Form, Button} from 'react-bootstrap'; // eslint-disable-line no-unused-vars
 import FormField from './FormField'
+import './FilmForm.css'
 
 class FilmForm extends React.Component {
   constructor(props) {
@@ -32,7 +33,7 @@ class FilmForm extends React.Component {
     const ratings = [1, 2, 3, 4, 5];
 
     return this.props.form !== null ?
-    <Panel>
+    <Panel className="editForm">
       <Panel.Heading>
         <h4>Edit form</h4>
       </Panel.Heading>

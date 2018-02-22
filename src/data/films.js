@@ -1,5 +1,7 @@
 import max from './max.jpg'
 import manila from './manila.jpg'
+import roza from './roza.jpg'
+import vegas from './vegas.jpg'
 
 const films = [
   {
@@ -23,14 +25,16 @@ const films = [
     year: 2012,
     name: 'Черная роза',
     description: 'Майор московской полиции отправляется в Лос-Анджелес для помощи местным стражам порядка в расследовании серии убийств русских эмигрантов.',
-    rating: 1
+    rating: 1,
+    image: roza
   },
   {
     id: 4,
     name: 'Убийство в Вегасе',
     year: 2010,
     description: 'Три подружки приезжают в Лас-Вегас на уик-энд и отправляются на шоу знаменитого иллюзиониста Дариуса. Но и после представления шоу продолжается: в кабинках двух лифтов находят… две половинки тела девушки.',
-    rating: 0
+    rating: 0,
+    image: vegas
   }
 ]
 
