@@ -1,52 +1,81 @@
-import React, { Component } from 'react';
-import './App.css';
+import React, { Component } from 'react'
+import films from './data/films'
+import FilmPage from './components/FilmPage'
 
-const splitWithNewLines = str => str.split('\n').map((item, key) => <span key={key}>{item}<br/></span>);
 
 class App extends Component {
   constructor(props) {
     super(props);
+
+    console.log(`FILMS: ${films}`);
+    console.log(`FILMS: ${JSON.stringify(films)}`);
+
     this.state = {
-      name: props.name || '',
-      description: props.description || '',
-      rating: props.rating || ''
-    }
-    this.changeValue = this.changeValue.bind(this);
+      films: films,
+      selectedFilm: null,
+      form: null
+    };
+
+    this.selectFilm = this.selectFilm.bind(this);
+    this.changeFormValue = this.changeFormValue.bind(this);
+    this.changeImage = this.changeImage.bind(this);
+    this.submit = this.submit.bind(this);
+    this.cancel = this.cancel.bind(this);
+  }
+  
+  selectFilm(id) {
+    const film = this.state.films.filter(x => x.id === id)[0];
+    this.form = Object.assign({}, film);
+    this.setState(
+      {
+        form: this.form,
+        selectedFilm: film
+      }
+    );
   }
 
-  changeValue(event) {
-    const bind = event.target.getAttribute('bind');
-    let newState = {};
-    newState[bind] = event.target.value;
+  changeFormValue (name, value) {
+    let newState = {
+      form: this.state.form
+    }
+    newState.form[name] = value
     this.setState(newState);
   }
 
-  render() {
-    return (
-      <div>
-        <div>
-          <div><strong>Name: </strong><span>{this.state.name}</span></div>
-          <div><strong>Description: </strong><p>{splitWithNewLines(this.state.description)}</p></div>
-          <div><strong>Rating: </strong><span>{this.state.rating}</span></div>
-        </div>
-        <p>Edit Form:</p>
-        <div>
-          <div><input type="input" bind="name" value={this.state.name} onChange={this.changeValue}/></div>
-          <div><textarea bind="description" value={this.state.description} onChange={this.changeValue} rows={5}/></div>
-          <div>
-            <select bind="rating" value={this.state.rating} onChange={this.changeValue}>
-              <option disabled>Select rating</option>
-              <option value="1">1 stars</option>
-              <option value="2">2 stars</option>
-              <option value="3">3 stars</option>
-              <option value="4">4 stars</option>
-              <option value="5">5 stars</option>
-            </select>
-          </div>
-        </div>
-      </div>
-    );
+  changeImage(image) {
+    let newState = {
+      form: this.state.form
+    }
+    newState.form.image = image
+    this.setState(newState);
   }
-}
+
+  submit() {
+    let film = this.state.films.filter(x => x.id === this.state.form.id)[0];
+    Object.assign(film, this.state.form);
+    
+    this.setState({
+      form: null
+    })
+  }
+
+  cancel() {
+    this.setState({
+      form: null
+    })
+  }
+
+  render () {
+    return <FilmPage 
+              films={this.state.films} 
+              form={this.state.form} 
+              selectFilm={this.selectFilm} 
+              changeFormValue={this.changeFormValue} 
+              submit={this.submit}
+              cancel={this.cancel}
+              changeImage={this.changeImage}
+            />
+  }
+};
 
 export default App;
