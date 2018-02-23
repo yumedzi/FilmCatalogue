@@ -63,15 +63,16 @@ class App extends Component {
   }
 
   render () {
-    return <FilmPage 
-              films={this.state.films} 
-              form={this.state.form} 
-              selectFilm={this.selectFilm} 
-              changeFormValue={this.changeFormValue} 
-              submit={this.submit}
-              cancel={this.cancel}
-              changeImage={this.changeImage}
-            />
+    return 
+    <FilmPage 
+      films={this.state.films} 
+      form={this.state.form} 
+      selectFilm={this.selectFilm} 
+      changeFormValue={this.changeFormValue} 
+      submit={this.submit}
+      cancel={this.cancel}
+      changeImage={this.changeImage}
+    />
   }
 };
 
