@@ -30,7 +30,7 @@ class FilmForm extends React.Component {
   }
 
   render () {
-    const ratings = [1, 2, 3, 4, 5];
+    const ratings = [0, 1, 2, 3, 4, 5];
 
     return this.props.form !== null ?
       <Panel className="editForm">

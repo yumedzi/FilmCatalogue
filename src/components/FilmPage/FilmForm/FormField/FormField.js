@@ -4,7 +4,7 @@ import {Col, FormGroup, FormControl} from 'react-bootstrap' // eslint-disable-li
 const FormField = ({type, name, value, onChange, options=[]}) => 
   <FormGroup>
     <Col sm={3}>
-      {name}
+      {name.charAt(0).toUpperCase() + name.slice(1)}
     </Col>
     <Col sm={8}>
       <FormControl 
@@ -16,7 +16,7 @@ const FormField = ({type, name, value, onChange, options=[]}) =>
         onChange = {onChange}
       >
         {/* just for Select */}
-        {type === 'select' ? options.map((x,i) => (<option key={i} value={x}>{x} star{x > 1 ? 's' : ''}</option>)) : null}
+        {type === 'select' ? options.map((x,i) => (<option key={i} value={x}>{x} star{x !== 1 ? 's' : ''}</option>)) : null}
       </FormControl>
     </Col>
   </FormGroup>;
