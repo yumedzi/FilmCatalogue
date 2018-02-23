@@ -3,13 +3,13 @@ import {Table} from 'react-bootstrap'
 import Film from './Film/Film'
 
 const FilmTable = ({films, selectFilm}) => 
-  <Table striped responsive hover>
+  <Table striped hover>
     <thead>
       <tr>
         <th>Image</th>
         <th>Film <small>/ year</small></th>
         <th>Rating</th>
-        <th>Description</th>
+        <th >Description</th>
       </tr>
     </thead>
     <tbody>

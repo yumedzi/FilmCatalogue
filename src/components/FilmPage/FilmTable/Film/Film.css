@@ -1,0 +1,7 @@
+.desc {
+  overflow-wrap: break-word;
+  text-overflow: ellipsis;  
+  max-height: 250px;
+  display: block;
+  overflow: hidden;
+}

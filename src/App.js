@@ -7,9 +7,6 @@ class App extends Component {
   constructor(props) {
     super(props);
 
-    console.log(`FILMS: ${films}`);
-    console.log(`FILMS: ${JSON.stringify(films)}`);
-
     this.state = {
       films: films,
       selectedFilm: null,

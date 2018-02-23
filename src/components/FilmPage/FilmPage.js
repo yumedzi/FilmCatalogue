@@ -4,10 +4,8 @@ import FilmTable from './FilmTable/FilmTable'
 import FilmForm from './FilmForm/FilmForm';
 
 
-const FilmPage = ({films, form, selectFilm, changeFormValue, changeImage, submit, cancel}) => {
-  console.log(`FILMS: ${films}`);
-
-  return <Grid>
+const FilmPage = ({films, form, selectFilm, changeFormValue, changeImage, submit, cancel}) => 
+  <Grid>
     <Row>
       <Col sm={7}>
         {/* === FILMS TABLE === */}
@@ -18,6 +16,6 @@ const FilmPage = ({films, form, selectFilm, changeFormValue, changeImage, submit
         <FilmForm form={form} changeFormValue={changeFormValue} changeImage={changeImage} submit={submit} cancel={cancel} />
       </Col>
     </Row>
-  </Grid>}
+  </Grid>;
     
 export default FilmPage
