@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import films from './data/films'
-import FilmPage from './components/FilmPage/FilmPage'
+import Page from './components/Page'
 
 
 class App extends Component {
@@ -10,7 +10,8 @@ class App extends Component {
     this.state = {
       films: films,
       selectedFilm: null,
-      form: null
+      form: null,
+      currentSection: 'films'
     };
 
     this.selectFilm = this.selectFilm.bind(this);
@@ -64,7 +65,7 @@ class App extends Component {
 
   render () {
     return (
-      <FilmPage 
+      <Page 
         films={this.state.films} 
         form={this.state.form} 
         selectFilm={this.selectFilm} 
@@ -72,6 +73,7 @@ class App extends Component {
         submit={this.submit}
         cancel={this.cancel}
         changeImage={this.changeImage}
+        currentSection={this.state.currentSection}
       />
     )}
 };
