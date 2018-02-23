@@ -1,6 +1,6 @@
 import React from 'react';
 import {Table} from 'react-bootstrap'
-import Film from './Film'
+import Film from './Film/Film'
 
 const FilmTable = ({films, selectFilm}) => 
   <Table striped responsive hover>

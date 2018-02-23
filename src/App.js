@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import films from './data/films'
-import FilmPage from './components/FilmPage'
+import FilmPage from './components/FilmPage/FilmPage'
 
 
 class App extends Component {

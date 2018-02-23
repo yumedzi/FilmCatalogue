@@ -1,6 +1,6 @@
 import React from 'react'
 import {Panel, Form, Button} from 'react-bootstrap'; // eslint-disable-line no-unused-vars
-import FormField from './FormField'
+import FormField from './FormField/FormField'
 import './FilmForm.css'
 
 class FilmForm extends React.Component {

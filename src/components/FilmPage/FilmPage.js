@@ -1,7 +1,7 @@
 import React from 'react';
 import {Grid, Col, Row} from 'react-bootstrap'; // eslint-disable-line no-unused-vars
-import FilmTable from './FilmTable'
-import FilmForm from './FilmForm';
+import FilmTable from './FilmTable/FilmTable'
+import FilmForm from './FilmForm/FilmForm';
 
 
 const FilmPage = ({films, form, selectFilm, changeFormValue, changeImage, submit, cancel}) => {

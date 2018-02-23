@@ -2,7 +2,7 @@
 
 import React from 'react';
 import {Image} from 'react-bootstrap';
-import Rating from './Rating';
+import Rating from '../Rating/Rating';
 
 
 const Film = ({id, name, rating, description, image, year, selectFilm}) => 
