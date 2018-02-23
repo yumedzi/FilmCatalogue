@@ -1,5 +1,5 @@
-import React from 'react';
-import './Rating.css';
+import React from 'react'
+import './Rating.css'
 
 const MaxRating = 5;
 

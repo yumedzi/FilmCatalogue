@@ -33,29 +33,29 @@ class FilmForm extends React.Component {
     const ratings = [1, 2, 3, 4, 5];
 
     return this.props.form !== null ?
-    <Panel className="editForm">
-      <Panel.Heading>
-        <h4>Edit form</h4>
-      </Panel.Heading>
-      <Panel.Body>
-        <Form horizontal>
-          {/* Hardcoded - to simplify code */}
-          <FormField type="input" name="name" onChange={this.changeValue} value={this.props.form.name} />
-          <FormField type="input" name="year"  onChange={this.changeValue} value={this.props.form.year} />
-          <FormField type="textarea" lines={5} name="description" onChange={this.changeValue}  value={this.props.form.description} />
-          <FormField type="select" name="rating" onChange={this.changeValue}  value={this.props.form.rating} options={ratings} />
-          <input className="fileInput" 
-            type="file" 
-            onChange={this.changeImage} 
-          />
-        </Form>
-      </Panel.Body>
-      <Panel.Footer>
-        <Button onClick={this.cancel} className="pull-right">Cancel</Button>
-        <Button onClick={this.submit}>Submit</Button>
-      </Panel.Footer>
-    </Panel>
-    : null
+      <Panel className="editForm">
+        <Panel.Heading>
+          <h4>Edit form</h4>
+        </Panel.Heading>
+        <Panel.Body>
+          <Form horizontal>
+            {/* Hardcoded - to simplify code */}
+            <FormField type="input" name="name" onChange={this.changeValue} value={this.props.form.name} />
+            <FormField type="input" name="year"  onChange={this.changeValue} value={this.props.form.year} />
+            <FormField type="textarea" lines={5} name="description" onChange={this.changeValue}  value={this.props.form.description} />
+            <FormField type="select" name="rating" onChange={this.changeValue}  value={this.props.form.rating} options={ratings} />
+            <input className="fileInput" 
+              type="file" 
+              onChange={this.changeImage} 
+            />
+          </Form>
+        </Panel.Body>
+        <Panel.Footer>
+          <Button onClick={this.cancel} className="pull-right">Cancel</Button>
+          <Button onClick={this.submit}>Submit</Button>
+        </Panel.Footer>
+      </Panel>
+      : null
   }
 };
 

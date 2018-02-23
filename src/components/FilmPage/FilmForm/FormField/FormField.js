@@ -1,5 +1,5 @@
-import React from 'react';
-import {Col, FormGroup, FormControl} from 'react-bootstrap'; // eslint-disable-line no-unused-vars
+import React from 'react'
+import {Col, FormGroup, FormControl} from 'react-bootstrap' // eslint-disable-line no-unused-vars
 
 const FormField = ({type, name, value, onChange, options=[]}) => 
   <FormGroup>
