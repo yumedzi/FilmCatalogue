@@ -4,7 +4,7 @@ import {Col, Row, Alert} from 'react-bootstrap' // eslint-disable-line no-unused
 
 const SettingsPage = () => 
   <Row>
-    <Alert>
+    <Alert  bsStyle="info">
       Stub for settings page --- easy-easy-real-talk!...
     </Alert>
   </Row>;

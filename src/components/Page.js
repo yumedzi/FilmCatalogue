@@ -14,7 +14,7 @@ const Page = ({siteStore}) =>
     {/* FILMS */}
     {siteStore.currentSection === 'films' && <FilmPage/>}
     {/* SETTINGS */}
-    {siteStore.currentSection === 'setting' && <SettingsPage/>}
+    {siteStore.currentSection === 'settings' && <SettingsPage/>}
   </Grid>;
     
 export default inject('siteStore')(observer(Page))
