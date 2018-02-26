@@ -3,7 +3,8 @@ import { action, extendObservable } from 'mobx';
 class SiteStore {
   allSections = [
     'films',
-    'settings'
+    'settings',
+    'titles'
   ]
   constructor() {
     extendObservable(this, {

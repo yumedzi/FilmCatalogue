@@ -5,6 +5,7 @@ import { observer, inject } from 'mobx-react';
 import FilmPage from './FilmPage/FilmPage'
 import Menu from './Menu/Menu'
 import SettingsPage from './SettingsPage/SettingsPage'
+import TitlesPage from './TitlesPage/TitlesPage'
 
 
 const Page = ({siteStore}) => 
@@ -13,6 +14,8 @@ const Page = ({siteStore}) =>
     {/* ### Site sections ### */}
     {/* FILMS */}
     {siteStore.currentSection === 'films' && <FilmPage/>}
+    {/* TITLES */}
+    {siteStore.currentSection === 'titles' && <TitlesPage/>}
     {/* SETTINGS */}
     {siteStore.currentSection === 'settings' && <SettingsPage/>}
   </Grid>;
