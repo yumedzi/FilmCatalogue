@@ -1,22 +1,15 @@
 import React from 'react'
+import { observer, inject } from 'mobx-react';
+
 import {Panel, Form, Button} from 'react-bootstrap'; // eslint-disable-line no-unused-vars
 import FormField from './FormField/FormField'
 import './FilmForm.css'
 
+
 class FilmForm extends React.Component {
   constructor(props) {
     super(props);
-    this.changeValue = this.changeValue.bind(this);
     this.changeImage = this.changeImage.bind(this);
-    this.submit = this.submit.bind(this);
-    this.cancel = this.cancel.bind(this);
-  }
-
-  submit() {this.props.submit()}
-  cancel() {this.props.cancel()}
-
-  changeValue (e) {
-    this.props.changeFormValue(e.target.getAttribute("name"), e.target.value)
   }
 
   changeImage(e) {
@@ -24,15 +17,16 @@ class FilmForm extends React.Component {
     let file = e.target.files[0];
 
     reader.onloadend = () => {
-      this.props.changeImage(reader.result);
+      this.props.formStore.changeImage(reader.result);
     }
     reader.readAsDataURL(file);
   }
 
   render () {
+    const formStore = this.props.formStore;
     const ratings = [0, 1, 2, 3, 4, 5];
 
-    return this.props.form !== null ?
+    return formStore.id !== null ?
       <Panel className="editForm">
         <Panel.Heading>
           <h4>Edit form</h4>
@@ -40,10 +34,10 @@ class FilmForm extends React.Component {
         <Panel.Body>
           <Form horizontal>
             {/* Hardcoded - to simplify code */}
-            <FormField type="input" name="name" onChange={this.changeValue} value={this.props.form.name} />
-            <FormField type="input" name="year"  onChange={this.changeValue} value={this.props.form.year} />
-            <FormField type="textarea" lines={5} name="description" onChange={this.changeValue}  value={this.props.form.description} />
-            <FormField type="select" name="rating" onChange={this.changeValue}  value={this.props.form.rating} options={ratings} />
+            <FormField type="input" name="name" onChange={formStore.changeValue} value={formStore.name} />
+            <FormField type="input" name="year"  onChange={formStore.changeValue} value={formStore.year} />
+            <FormField type="textarea" lines={5} name="description" onChange={formStore.changeValue}  value={formStore.description} />
+            <FormField type="select" name="rating" onChange={formStore.changeValue}  value={formStore.rating} options={ratings} />
             <input className="fileInput" 
               type="file" 
               onChange={this.changeImage} 
@@ -51,12 +45,13 @@ class FilmForm extends React.Component {
           </Form>
         </Panel.Body>
         <Panel.Footer>
-          <Button onClick={this.cancel} className="pull-right">Cancel</Button>
-          <Button onClick={this.submit}>Submit</Button>
+          <Button onClick={formStore.cancel} className="pull-right">Cancel</Button>
+          <Button onClick={formStore.submit}>Submit</Button>
         </Panel.Footer>
       </Panel>
       : null
   }
 };
 
-export default FilmForm
+
+export default inject('formStore')(observer(FilmForm))

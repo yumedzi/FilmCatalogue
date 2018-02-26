@@ -1,18 +1,19 @@
 import React from 'react';
-import {Grid, Col, Row} from 'react-bootstrap' // eslint-disable-line no-unused-vars
+import {Col, Row} from 'react-bootstrap'
+
 import FilmTable from './FilmTable/FilmTable'
 import FilmForm from './FilmForm/FilmForm'
 
 
-const FilmPage = ({films, form, selectFilm, changeFormValue, changeImage, submit, cancel}) => 
+const FilmPage = () => 
   <Row>
     <Col sm={7}>
       {/* === FILMS TABLE === */}
-      <FilmTable films={films} selectFilm={selectFilm} />
+      <FilmTable/>
     </Col>
     <Col sm={5}>
       {/* === EDITING FORM === */}
-      <FilmForm form={form} changeFormValue={changeFormValue} changeImage={changeImage} submit={submit} cancel={cancel} />
+      <FilmForm/>
     </Col>
   </Row>;
     

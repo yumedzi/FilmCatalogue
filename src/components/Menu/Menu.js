@@ -1,8 +1,9 @@
 import React from 'react'
+import { observer, inject } from 'mobx-react';
 import {Nav, MenuItem, Navbar, NavItem, NavDropdown} from 'react-bootstrap' // eslint-disable-line no-unused-vars
 
 
-const Menu = ({currentSection}) =>
+const Menu = ({siteStore}) =>
   <Navbar>
     <Navbar.Header>
       <Navbar.Brand>
@@ -10,13 +11,13 @@ const Menu = ({currentSection}) =>
       </Navbar.Brand>
     </Navbar.Header>
     <Nav>
-      <NavItem eventKey={1} href="#" className={currentSection === 'films' && 'active'}>
+      <NavItem eventKey={1} href="#" className={siteStore.currentSection === 'films' && 'active'}>
         Films DB
       </NavItem>
-      <NavItem eventKey={2} href="#" className={currentSection === 'settings' && 'active'}>
+      <NavItem eventKey={2} href="#" className={siteStore.currentSection === 'settings' && 'active'}>
         Settings
       </NavItem>
     </Nav>
   </Navbar>;
 
-export default Menu
+export default inject('siteStore')(observer(Menu))
