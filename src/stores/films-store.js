@@ -22,12 +22,6 @@ class FilmStore {
     formStore.rating = film.rating;
     formStore.image = film.image;
   })
-
-
-  update = action(function(attr, val) {
-    this[attr] = val
-  })
-
 }
 
 const filmStore = new FilmStore()
