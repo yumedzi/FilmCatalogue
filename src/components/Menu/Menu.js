@@ -11,10 +11,20 @@ const Menu = ({siteStore}) =>
       </Navbar.Brand>
     </Navbar.Header>
     <Nav>
-      <NavItem eventKey={1} href="#" className={siteStore.currentSection === 'films' && 'active'}>
+      <NavItem 
+        eventKey={1} 
+        href="#" 
+        className={siteStore.currentSection === 'films' && 'active'}
+        onClick={() => siteStore.changeSection('films')}
+      >
         Films DB
       </NavItem>
-      <NavItem eventKey={2} href="#" className={siteStore.currentSection === 'settings' && 'active'}>
+      <NavItem 
+        eventKey={2} 
+        href="#" 
+        className={siteStore.currentSection === 'settings' && 'active'}
+        onClick={() => siteStore.changeSection('settings')}
+      >
         Settings
       </NavItem>
     </Nav>
