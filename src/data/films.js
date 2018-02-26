@@ -2,6 +2,7 @@ import max from './max.jpg'
 import manila from './manila.jpg'
 import roza from './roza.jpg'
 import vegas from './vegas.jpg'
+import forsazh from './forsazh.jpg'
 
 const films = [
   {
@@ -35,6 +36,14 @@ const films = [
     description: 'Три подружки приезжают в Лас-Вегас на уик-энд и отправляются на шоу знаменитого иллюзиониста Дариуса. Но и после представления шоу продолжается: в кабинках двух лифтов находят… две половинки тела девушки.',
     rating: 0,
     image: vegas
+  },
+  {
+    id: 5,
+    name: 'Форсаж да Винчи',
+    year: 2007,
+    description: 'Он вернулся! Терминатор российского кинобизнеса. Внучатый племянник Арнольда Шварценеггера. Непревзойденный Александр Невский против «не до конца убитого Билла» Дэвида Кэррадайна в пародийном боевике.',
+    rating: 1,
+    image: forsazh
   }
 ]
 
