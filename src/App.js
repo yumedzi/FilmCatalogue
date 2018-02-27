@@ -1,5 +1,5 @@
 import React from 'react'
-import { Provider  } from 'mobx-react';
+import { Provider } from 'mobx-react';
 
 import filmStore from './stores/films-store'
 import formStore from './stores/form-store'

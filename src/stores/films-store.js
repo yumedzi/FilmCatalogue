@@ -1,4 +1,4 @@
-import { action, extendObservable } from 'mobx';
+import { action, extendObservable, toJS } from 'mobx';
 
 import films from '../data/films'
 import formStore from './form-store'
@@ -6,21 +6,11 @@ import formStore from './form-store'
 
 class FilmStore {
   constructor() {
-    extendObservable(this, {
-      films: films
-    })
+    extendObservable(this, {films})
   }
 
   selectFilm = action(function(id) {
-    console.log(`Changing FILM to ${id}`);
-
-    const film = this.films.filter(x => x.id === id)[0];
-    formStore.id = film.id;
-    formStore.name = film.name;
-    formStore.description = film.description;
-    formStore.year = film.year;
-    formStore.rating = film.rating;
-    formStore.image = film.image;
+    formStore.selectedFilm = toJS(this.films.filter(x => x.id === id)[0]);
   })
 }
 

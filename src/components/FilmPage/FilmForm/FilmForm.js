@@ -26,7 +26,7 @@ class FilmForm extends React.Component {
     const formStore = this.props.formStore;
     const ratings = [0, 1, 2, 3, 4, 5];
 
-    return formStore.id !== null ?
+    return formStore.selectedFilm !== null ?
       <Panel className="editForm">
         <Panel.Heading>
           <h4>Edit form</h4>
@@ -34,10 +34,10 @@ class FilmForm extends React.Component {
         <Panel.Body>
           <Form horizontal>
             {/* Hardcoded - to simplify code */}
-            <FormField type="input" name="name" onChange={formStore.changeValue} value={formStore.name} />
-            <FormField type="input" name="year"  onChange={formStore.changeValue} value={formStore.year} />
-            <FormField type="textarea" lines={5} name="description" onChange={formStore.changeValue}  value={formStore.description} />
-            <FormField type="select" name="rating" onChange={formStore.changeValue}  value={formStore.rating} options={ratings} />
+            <FormField type="input" name="name" onChange={formStore.changeValue} value={formStore.selectedFilm.name} />
+            <FormField type="input" name="year"  onChange={formStore.changeValue} value={formStore.selectedFilm.year} />
+            <FormField type="textarea" lines={5} name="description" onChange={formStore.changeValue}  value={formStore.selectedFilm.description} />
+            <FormField type="select" name="rating" onChange={formStore.changeValue}  value={formStore.selectedFilm.rating} options={ratings} />
             <input className="fileInput" 
               type="file" 
               onChange={this.changeImage} 

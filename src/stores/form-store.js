@@ -1,15 +1,11 @@
-import { action, extendObservable } from 'mobx';
+import { action, extendObservable, toJS } from 'mobx';
 
 import filmStore from './films-store'
 
 class FormStore {
   constructor() {
     extendObservable(this, {
-      id: null,
-      name: '',
-      year: '',
-      description: '',
-      rating: ''
+      selectedFilm: null
     })
 
     this.changeValue = this.changeValue.bind(this);
@@ -19,31 +15,22 @@ class FormStore {
   }
 
   changeValue = action(function(e) {
-    this[e.target.getAttribute("name")] = e.target.value
+    this.selectedFilm && (this.selectedFilm[e.target.getAttribute("name")] = e.target.value);
   })
 
   submit = action(function(){
-    let film = filmStore.films.filter(x => x.id === this.id)[0];
-    film.name = this.name;
-    film.description = this.description;
-    film.rating = this.rating;
-    film.year = this.year;
-    film.image = this.image;
-    
+    console.log(this.selectedFilm)
+    let film = filmStore.films.find(x => x.id === this.selectedFilm.id)
+    extendObservable(film, toJS(this.selectedFilm));
     this.cancel();
   })
 
   cancel = action(function(){
-    this.id = null;
-    this.name = '';
-    this.description = '';
-    this.year = '';
-    this.rating = '';
-    this.image = '';
+    this.selectedFilm = null;
   })
 
   changeImage = action(function(image){
-    this.image = image
+    this.selectedFilm.image = image
   })
 }
 
