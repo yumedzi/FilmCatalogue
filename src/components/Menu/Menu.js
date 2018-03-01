@@ -4,7 +4,7 @@ import {Nav, MenuItem, Navbar, NavItem, NavDropdown} from 'react-bootstrap' // e
 
 
 const Menu = ({siteStore}) =>
-  <Navbar fluid responsive>
+  <Navbar fluid>
     <Navbar.Header>
       <Navbar.Brand>
         <a href="/FilmCatalogue"><strong>Film Catalogue</strong></a>
@@ -15,17 +15,17 @@ const Menu = ({siteStore}) =>
       <Nav>
         <NavItem 
           eventKey={1} 
-          href="#" 
-          className={siteStore.currentSection === 'films' && 'active'}
-          onClick={() => siteStore.changeSection('films')}
+          href="/" 
+          // className={siteStore.currentSection === 'films' && 'active'}
+          // onClick={() => siteStore.changeSection('films')}
         >
         Films DB
         </NavItem>
         <NavItem 
           eventKey={3} 
-          href="#" 
-          className={siteStore.currentSection === 'titles' && 'active'}
-          onClick={() => siteStore.changeSection('titles')}
+          href="/titles" 
+          // className={siteStore.currentSection === 'titles' && 'active'}
+          // onClick={() => siteStore.changeSection('titles')}
         >
         Titles
         </NavItem>
