@@ -8,7 +8,7 @@ class SiteStore {
   ]
   constructor() {
     extendObservable(this, {
-      currentSection: 'films'
+      currentSection: window.location.href.split('/')[window.location.href.split('/').length-1]
     })
     this.changeSection = this.changeSection.bind(this);
   }

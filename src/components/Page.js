@@ -11,16 +11,18 @@ import TitlesPage from './TitlesPage/TitlesPage'
 
 const Page = ({siteStore}) => 
   <Grid>
-    <Menu/>
-    {/* ### Site sections ### */}
-    
     <BrowserRouter>
-      <Switch> {/* Check fragmanet */}
-        <Route path='/' component={FilmPage} />
-        <Route path='/titles' component={TitlesPage} />
-        <Route path='/settings' component={SettingsPage} />
-      </Switch>
+      <React.Fragment>
+        <Menu/>
+    
+        {/* ### Site sections ### */}
+        <Switch> {/* Check React.Fragment */}
+          <Route exact path='/' component={FilmPage} />
+          <Route path='/titles' component={TitlesPage} />
+          <Route path='/settings' component={SettingsPage} />
+        </Switch>
+      </React.Fragment>
     </BrowserRouter>
   </Grid>;
-    
-export default Page
+
+export default inject('siteStore')(observer(Page))

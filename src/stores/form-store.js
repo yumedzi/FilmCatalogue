@@ -19,7 +19,6 @@ class FormStore {
   })
 
   submit = action(function(){
-    console.log(this.selectedFilm)
     let film = filmStore.films.find(x => x.id === this.selectedFilm.id)
     extendObservable(film, toJS(this.selectedFilm));
     this.cancel();
